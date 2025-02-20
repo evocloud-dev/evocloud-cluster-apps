@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-idiomatic-order"
+  ],
+  "customSyntax": "postcss-scss",
+  "rules": {
+    "alpha-value-notation": ["number"]
+  }
+}

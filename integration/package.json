@@ -1,0 +1,19 @@
+{
+  "name": "kubeapps-integration",
+  "license": "Apache-2.0",
+  "version": "2.0.0",
+  "description": "Kubeapps integration tests",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "prettier": "prettier --write './**/*.{js, json}'",
+    "test": "playwright test --workers=1"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.46.0",
+    "axios": "^1.7.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}

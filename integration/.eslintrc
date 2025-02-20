@@ -1,0 +1,16 @@
+// Copyright 2019-2022 the Kubeapps contributors.
+// SPDX-License-Identifier: Apache-2.0
+
+{
+  "env": {
+    "jest": true
+  },
+  "globals": {
+    "page": true,
+    "browser": true,
+    "context": true,
+    "jestPuppeteer": true,
+    "ENDPOINT": true,
+    "getUrl": true
+  }
+}
