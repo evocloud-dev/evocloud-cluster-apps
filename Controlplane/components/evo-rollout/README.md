@@ -8,10 +8,10 @@ Evo-Rollout Capability Provider powered by [OpenKruise](https://openkruise.io/)
 vela addon enable evo-rollout
 ```
 
-If you want to define a namespace at the type of deployment, you can use:
+If you want to define a namespace at the time of deployment, you can use:
 
 ```shell
-vela addon enable evo-autoscaler namespace=kruise-system
+vela addon enable evo-rollout namespace=kruise-system
 ```
 
 ## eXtended-Definitions

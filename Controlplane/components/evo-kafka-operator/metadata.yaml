@@ -1,0 +1,22 @@
+name: evo-kafka-operator
+version: 0.45
+description: Evo-Kafka-Operator is a Capability Provider powered by Strimzi.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/strimzi/horizontal/color/strimzi-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - Strimzi
+  - Operator
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false

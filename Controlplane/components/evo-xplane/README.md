@@ -8,7 +8,7 @@ EvoXPlane component/addon is a cloud native control plane framework, powered by 
 vela addon enable evo-xplane
 ```
 
-If you want to define a namespace at the type of deployment, you can use:
+If you want to define a namespace at the time of deployment, you can use:
 
 ```shell
 vela addon enable evo-xplane namespace=crossplane-system

@@ -8,7 +8,7 @@ Evo-Policy-as-Code powered by [Kyverno](https://kyverno.io/)
 vela addon enable evo-pac
 ```
 
-If you want to define a namespace at the type of deployment, you can use:
+If you want to define a namespace at the time of deployment, you can use:
 
 ```shell
 vela addon enable evo-pac namespace=kyverno
