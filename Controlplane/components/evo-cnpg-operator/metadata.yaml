@@ -1,0 +1,22 @@
+name: evo-cnpg-operator
+version: 1.25
+description: Evo-CNPG-Operator is a Capability Provider powered by CloudNativePG.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/cloudnativepg/horizontal/color/cloudnativepg-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - CloudNativePG
+  - Operator
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false
