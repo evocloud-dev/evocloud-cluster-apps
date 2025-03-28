@@ -1,0 +1,21 @@
+name: evo-gitops
+version: 2.14
+description: Evo-Gitops is a Capability Provider powered by ArgoCD.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/argo/horizontal/color/argo-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - ArgoCD
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false

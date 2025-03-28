@@ -1,20 +1,20 @@
 // template.cue
-//Ref: https://medium.com/google-cloud/setting-up-kafka-strimzi-operator-and-kafka-cluster-on-gke-cf4b8201f317
+
 package main
 
 output: {
 	apiVersion: "core.oam.dev/v1beta1"
 	kind: "Application"
 	metadata: {
-		name: 'evo-kafka-operator'
+		name: 'evo-gitops'
 		namespace: 'vela-system'
 	}
 	spec: {
         components: [
-          //first component: kafka-operator-ns namespace object
+          //first component: gitops-ns namespace object
           {
             type: "k8s-objects"
-            name: "kafka-operator-ns"
+            name: "gitops-ns"
             properties: objects: [
               {
                  apiVersion: "v1"
@@ -23,48 +23,48 @@ output: {
               }
             ]
           },
-          //second component: kafka-operator-repo helm repository object
+          //second component: gitops-repo helm repository object
           {
              type: "k8s-objects"
-             name: "kafka-operator-repo"
-             dependsOn: ["kafka-operator-ns"]
+             name: "gitops-repo"
+             dependsOn: ["gitops-ns"]
              properties: objects: [
                {
                   apiVersion: "source.toolkit.fluxcd.io/v1beta1"
                   kind: "HelmRepository"
                   metadata: {
-                    name: "strimzi-stable"
+                    name: "argocd-stable"
                     namespace: parameter.namespace
                   }
                   spec: {
                   	interval: "1h"
-                  	url: "https://strimzi.io/charts/"
+                  	url: "https://argoproj.github.io/argo-helm/"
                   }
                }
              ]
           },
-          //third component: kafka-operator-deploy logic
+          //third component: gitops-deploy logic
           {
              type: "k8s-objects"
-             name: "kafka-operator"
-             dependsOn: ["kafka-operator-repo"]
+             name: "gitops"
+             dependsOn: ["gitops-repo"]
              properties: objects: [
                {
                   apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
                   kind: "HelmRelease"
                   metadata: {
-                    name: "strimzi-operator-deploy"
+                    name: "argocd-deploy"
                     namespace: parameter.namespace
                   }
                   spec: {
                     chart: {
                     	spec: {
-                    		chart: "strimzi-kafka-operator"
+                    		chart: "argo-cd"
                     		sourceRef: {
                     			kind: "HelmRepository"
-                    			name: "strimzi-stable"
+                    			name: "argocd-stable"
                     		}
-                    		version: "0.45.*"
+                    		version: "7.8.*"
                     	}
                     }
                     interval: "15m0s"
@@ -79,7 +79,9 @@ output: {
                     	}
                     }
                     values: {
-                    	replicas: 1
+                    	controller: {
+                    		replicas: 1
+                    	}
                     }
                   }
 
@@ -88,8 +90,10 @@ output: {
           },
         ]
 
+        //policy definition
         policies: []
 
+        //workflow step definition
         workflow: steps: []
 	}
 }
