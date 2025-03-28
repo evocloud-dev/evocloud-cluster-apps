@@ -1,0 +1,21 @@
+name: evo-xplane
+version: 1.19
+description: EvoXplane Capability Provider powered by Crossplane.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/crossplane/horizontal/color/crossplane-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - Crossplane
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false

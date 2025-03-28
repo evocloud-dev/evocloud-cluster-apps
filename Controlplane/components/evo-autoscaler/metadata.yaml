@@ -1,0 +1,21 @@
+name: evo-autoscaler
+version: 2.16
+description: Evo-AutoScaler Capability Provider powered by Keda.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/keda/horizontal/color/keda-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - Keda
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false

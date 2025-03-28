@@ -1,0 +1,21 @@
+name: evo-pac
+version: 1.13
+description: Evo-Policy-as-Code powered by Kyverno.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/kyverno/horizontal/color/kyverno-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - Kyverno
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false

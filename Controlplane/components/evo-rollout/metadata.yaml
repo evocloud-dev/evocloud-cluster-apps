@@ -1,0 +1,21 @@
+name: evo-rollout
+version: 1.8
+description: Evo-Rollout Capability Provider powered by OpenKruise.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/openkruise/horizontal/color/openkruise-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - OpenKruise
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false
