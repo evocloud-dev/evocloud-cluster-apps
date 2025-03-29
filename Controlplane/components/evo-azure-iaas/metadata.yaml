@@ -1,19 +1,19 @@
-name: iaas-cp-azure
+name: evo-azure-iaas
 version: 0.1.0
 description: EvoCloud controlplane provider for deploying and managing Azure resources with Crossplane.
 icon: https://www.svglink.dev
 url: https://evocloud.dev/
 
 tags:
-  - evocloud
-  - azure-cp
+  - EvoCloud
+  - Azure
 
 deployTo:
   runtimeCluster: false
   control_plane: true
 
 dependencies:
-  - name: crossplane
+  - name: evo-xplane
     version: ">= 1.19.0, < 2.0.0"
 
 system:
