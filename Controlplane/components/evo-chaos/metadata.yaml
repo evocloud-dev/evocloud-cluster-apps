@@ -1,7 +1,7 @@
 name: evo-chaos
 version: 2.7
 description: Evo-Chaos Capability Provider powered by chaos-mesh.
-icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/keda/horizontal/color/keda-horizontal-color.png
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/chaosmesh/horizontal/color/chaosmesh-horizontal-color.png
 url: https://evocloud.dev/
 
 tags:
