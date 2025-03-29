@@ -1,0 +1,22 @@
+name: evo-kubescape
+version: 1.26
+description: Evo-Kubescape is a Capability Provider powered by Kubescape.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/kubescape/horizontal/color/kubescape-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - Kubescape
+  - Operator
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false
