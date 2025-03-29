@@ -5,7 +5,7 @@ Evo-Kubescape is a Capability Provider powered by [Kubescape](https://kubescape.
 ## install
 
 ```shell
-vela addon enable evo-kubescape
+vela addon enable evo-kubescape clustername=cluster0
 ```
 
 You must define the clustername variable at the time of deployment, here is an example:
