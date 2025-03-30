@@ -1,19 +1,19 @@
-"azure-rg": {
+"azure-vnet": {
 	type: "component"
 	alias: ""
-	description: "Azure Resource Group provided by EvoCloud"
+	description: "Azure Virtual Network provided by EvoCloud"
 	annotations: {}
 	labels: {}
 	attributes: workload: type: "autodetects.core.oam.dev"
 }
 
 template: {
-	// azureResourceGroup: https://marketplace.upbound.io/providers/crossplane-contrib/provider-azure/v0.20.1/resources/azure.crossplane.io/ResourceGroup/v1alpha3
-	output: {
-		apiVersion: "azure.crossplane.io/v1alpha3"
-		kind:       "ResourceGroup"
-		metadata: {
-      name: parameter.resourceGroupName
+	// azureVirtualNetwork https://marketplace.upbound.io/providers/crossplane-contrib/provider-azure/v0.20.1/resources/network.azure.crossplane.io/VirtualNetwork/v1alpha3
+  output: {
+  	apiVersion: "network.azure.crossplane.io/v1alpha3"
+  	kind: "VirtualNetwork"
+  	metadata: {
+      name: parameter.virtualNetworkName
       namespace: parameter.resourceGroupNamespace
     }
     spec: {
@@ -21,12 +21,20 @@ template: {
     	providerConfigRef: {
     		name: parameter.providerConfigName
     	}
+    	resourceGroupNameRef: {
+    		name: parameter.resourceGroupName
+    	}
+    	properties: {
+    		addressSpace: {
+    			addressPrefixes: parameter.addressPrefixes
+    		}
+    	}
     }
-	}
+  }
 
-	//parameter
-	parameter: {
-		  //+usage=providerName defining the type of the IaaS Provider to use. Defaults to `provider-azure`
+  //parameter
+  parameter: {
+  	//+usage=providerName defining the type of the IaaS Provider to use. Defaults to `provider-azure`
 			providerName: *"provider-azure" | string
 			//+usage=providerConfigName defining the config name of the IaaS Provider to use. Defaults to `provider-azure-config`
 			providerConfigName: *"provider-azure-config" | string
@@ -57,5 +65,6 @@ template: {
 			virtualNetworkName: *"evocloud-paas-vnet" | string
 			//+usage=addressPrefixes defines the range of IP addresses (CIDR block) the Azure Virtual Network can use. Defaults to ["10.10.0.0/16", "192.168.0.0/16"].
 			addressPrefixes: *["10.10.0.0/16", "192.168.0.0/16"] | [...string]
-	}
+
+  }
 }
