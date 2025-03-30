@@ -1,33 +1,33 @@
-"azure-vnet": {
+"azure-subnet": {
 	type: "component"
 	alias: ""
-	description: "Azure Virtual Network provided by EvoCloud"
+	description: "Azure Subnet provided by EvoCloud"
 	annotations: {}
 	labels: {}
 	attributes: workload: type: "autodetects.core.oam.dev"
 }
 
 template: {
-	// azureVirtualNetwork https://marketplace.upbound.io/providers/crossplane-contrib/provider-azure/v0.20.1/resources/network.azure.crossplane.io/VirtualNetwork/v1alpha3
+	// azureSubnet: https://marketplace.upbound.io/providers/crossplane-contrib/provider-azure/v0.20.1/resources/network.azure.crossplane.io/Subnet/v1alpha3
   output: {
   	apiVersion: "network.azure.crossplane.io/v1alpha3"
-  	kind: "VirtualNetwork"
+  	kind: "Subnet"
   	metadata: {
-      name: parameter.virtualNetworkName
+      name: parameter.subnetName
       namespace: parameter.resourceGroupNamespace
     }
     spec: {
-    	location: parameter.location
     	providerConfigRef: {
     		name: parameter.providerConfigName
     	}
     	resourceGroupNameRef: {
     		name: parameter.resourceGroupName
     	}
+    	virtualNetworkNameRef: {
+    		name: parameter.virtualNetworkName
+    	}
     	properties: {
-    		addressSpace: {
-    			addressPrefixes: parameter.addressPrefixes
-    		}
+    		addressPrefix: parameter.subnetAddressPrefix
     	}
     }
   }
@@ -65,7 +65,7 @@ template: {
 			virtualNetworkName: *"evocloud-paas-vnet" | string
 			//+usage=addressPrefixes defines the range of IP addresses (CIDR block) the Azure Virtual Network can use. Defaults to ["10.10.0.0/16", "192.168.0.0/16"].
 			addressPrefixes: *["10.10.0.0/16", "192.168.0.0/16"] | [...string]
-			//+usage=subnetName defines the name of the Azure Subnet to create. Defaults to `evocloud-dmz-subnet`.
+      //+usage=subnetName defines the name of the Azure Subnet to create. Defaults to `evocloud-dmz-subnet`.
   		subnetName: *"evocloud-dmz-subnet" | string
   		//+usage=addressPrefix defines the CIDR block IP for the Azure Subnet
   		subnetAddressPrefix: *"10.10.10.0/24" | string

@@ -33,5 +33,9 @@ parameter: {
 	virtualNetworkName: *"evocloud-paas-vnet" | string
 	//+usage=addressPrefixes defines the range of IP addresses (CIDR block) the Azure Virtual Network can use. Defaults to ["10.10.0.0/16", "192.168.0.0/16"].
   addressPrefixes: *["10.10.0.0/16", "192.168.0.0/16"] | [...string]
+  //+usage=subnetName defines the name of the Azure Subnet to create. Defaults to `evocloud-dmz-subnet`.
+  subnetName: *"evocloud-dmz-subnet" | string
+  //+usage=addressPrefix defines the CIDR block IP for the Azure Subnet
+  subnetAddressPrefix: *"10.10.10.0/24" | string
 
 }
