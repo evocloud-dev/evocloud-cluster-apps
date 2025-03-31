@@ -77,6 +77,11 @@ output: {
                     		retries: 2
                     	}
                     }
+                    values: {
+                    	image: {
+                    		pullPolicy: parameter.imagePullPolicy
+                    	}
+                    }
                   }
 
                }
