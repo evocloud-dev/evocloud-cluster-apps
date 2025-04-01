@@ -1,6 +1,6 @@
-# Evo-Kured
+# Evo-Reboot
 
-Evo-Kured is an addon for safely cordonning, rebooting, and uncordonning Kubernetes Nodes
+Evo-Reboot is an addon for safely cordonning, rebooting, and uncordonning Kubernetes Nodes
 
 ## install
 

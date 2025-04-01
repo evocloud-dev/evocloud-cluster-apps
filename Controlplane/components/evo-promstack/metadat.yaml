@@ -1,0 +1,23 @@
+name: evo-promstack
+version: 0.81
+description: Evo-PromStack is an addon providing a monitoring stack for EvoCloud.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/prometheus/horizontal/color/prometheus-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - Prometheus
+  - Grafana
+  - AlertManager
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false
