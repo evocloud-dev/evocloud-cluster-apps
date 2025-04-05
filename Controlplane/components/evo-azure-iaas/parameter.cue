@@ -37,5 +37,11 @@ parameter: {
   subnetName: *"evocloud-dmz-subnet" | string
   //+usage=addressPrefix defines the CIDR block IP for the Azure Subnet
   subnetAddressPrefix: *"10.10.10.0/24" | string
+  aksClusterName: *"evocloud-aks" | string
+  aksDnsPrefix: *"evo-aks-dns" | string
+  aksNodeCount: 3
+  aksVmSize: *"Standard_B2s" | string
+  kubeVersion: *"1.32.2" | string
+  aksSecretName: *"evo-akscluster" | string
 
 }

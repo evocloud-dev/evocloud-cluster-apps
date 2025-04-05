@@ -34,7 +34,7 @@ template: {
 
   //parameter
   parameter: {
-  	//+usage=providerName defining the type of the IaaS Provider to use. Defaults to `provider-azure`
+  	  //+usage=providerName defining the type of the IaaS Provider to use. Defaults to `provider-azure`
 			providerName: *"provider-azure" | string
 			//+usage=providerConfigName defining the config name of the IaaS Provider to use. Defaults to `provider-azure-config`
 			providerConfigName: *"provider-azure-config" | string
@@ -66,9 +66,15 @@ template: {
 			//+usage=addressPrefixes defines the range of IP addresses (CIDR block) the Azure Virtual Network can use. Defaults to ["10.10.0.0/16", "192.168.0.0/16"].
 			addressPrefixes: *["10.10.0.0/16", "192.168.0.0/16"] | [...string]
 			//+usage=subnetName defines the name of the Azure Subnet to create. Defaults to `evocloud-dmz-subnet`.
-  		subnetName: *"evocloud-dmz-subnet" | string
-  		//+usage=addressPrefix defines the CIDR block IP for the Azure Subnet
-  		subnetAddressPrefix: *"10.10.10.0/24" | string
+			subnetName: *"evocloud-dmz-subnet" | string
+			//+usage=addressPrefix defines the CIDR block IP for the Azure Subnet
+			subnetAddressPrefix: *"10.10.10.0/24" | string
+			aksClusterName: *"evocloud-aks" | string
+			aksDnsPrefix: *"evo-aks-dns" | string
+			aksNodeCount: 3
+			aksVmSize: *"Standard_B2s" | string
+			kubeVersion: *"1.32.2" | string
+			aksSecretName: *"evo-akscluster" | string
 
   }
 }

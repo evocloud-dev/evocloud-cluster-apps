@@ -1,65 +1,47 @@
-import "encoding/json"
-
-"azure-provider-config": {
+"azure-kube-aks": {
 	type: "component"
 	alias: ""
+	description: "Azure Kubernetes Service by EvoCloud"
+	annotations: {}
 	labels: {}
-  annotations: {}
-  description: "Azure ProviderConfig provided by EvoCloud"
-  attributes: workload: type: "autodetects.core.oam.dev"
+	attributes: workload: type: "autodetects.core.oam.dev"
 }
 
 template: {
-	//azureProviderConfig: https://marketplace.upbound.io/providers/crossplane-contrib/provider-azure/v0.20.1/resources/azure.crossplane.io/ProviderConfig/v1beta1
+	// azureSubnet: https://marketplace.upbound.io/providers/crossplane-contrib/provider-azure/v0.20.1/resources/compute.azure.crossplane.io/AKSCluster/v1alpha3
   output: {
-  	apiVersion: "azure.crossplane.io/v1beta1"
-  	kind:       "ProviderConfig"
+  	apiVersion: "compute.azure.crossplane.io/v1alpha3"
+  	kind: "AKSCluster"
   	metadata: {
-      name: parameter.providerConfigName
+      name: parameter.aksClusterName
+      namespace: parameter.resourceGroupNamespace
     }
     spec: {
-    	credentials: {
-    		source: "Secret"
-    		type: "Opaque"
-    		secretRef: {
-    			name: parameter.providerName + "-account-creds"
-    			namespace: "vela-system"
-    			key:       "creds"
-    		}
+    	disableRBAC: false
+    	dnsNamePrefix: parameter.aksDnsPrefix
+    	location: parameter.location
+    	nodeCount: parameter.aksNodeCount
+    	nodeVMSize: parameter.aksVmSize
+    	version: parameter.kubeVersion
+    	providerConfigRef: {
+    		name: parameter.providerConfigName
+    	}
+    	resourceGroupNameRef: {
+    		name: parameter.resourceGroupName
+    	}
+    	vnetSubnetIDRef: {
+    		name: parameter.subnetName
+    	}
+    	writeConnectionSecretToRef: {
+    		name: parameter.aksSecretName
+    		namespace: parameter.resourceGroupNamespace
     	}
     }
   }
 
-  //Creates the secret referenced in the output template
-  outputs: {
-  	"credential": {
-  		apiVersion: "v1"
-  		kind: "Secret"
-  		metadata: {
-  			name: parameter.providerName + "-account-creds"
-  			namespace: "vela-system"
-  		}
-  		stringData: {
-    			creds: json.Marshal({
-            clientId:     parameter.azureClientId
-            clientSecret: parameter.azureClientSecret
-            subscriptionId: parameter.azureSubscriptionId
-            tenantId:     parameter.azureTenantId
-            activeDirectoryEndpointUrl: parameter.azureActiveDirectoryEndpointUrl
-					  resourceManagerEndpointUrl: parameter.azureResourceManagerEndpointUrl
-            activeDirectoryGraphResourceId: parameter.azureActiveDirectoryGraphResourceId
-            sqlManagementEndpointUrl: parameter.azureSqlManagementEndpointUrl
-            galleryEndpointUrl: parameter.azureGalleryEndpointUrl
-            managementEndpointUrl: parameter.azureManagementEndpointUrl
-          })
-    	}
-  	}
-
-  }
-
-  //Reason for defining parameters inline: parameters from root folder was not seen
+  //parameter
   parameter: {
-			//+usage=providerName defining the type of the IaaS Provider to use. Defaults to `provider-azure`
+  	  //+usage=providerName defining the type of the IaaS Provider to use. Defaults to `provider-azure`
 			providerName: *"provider-azure" | string
 			//+usage=providerConfigName defining the config name of the IaaS Provider to use. Defaults to `provider-azure-config`
 			providerConfigName: *"provider-azure-config" | string
@@ -98,8 +80,7 @@ template: {
 			aksDnsPrefix: *"evo-aks-dns" | string
 			aksNodeCount: 3
 			aksVmSize: *"Standard_B2s" | string
-			kubeVersion: *"1.32.2" | string
+			kubeVersion: *"1.32.0" | string
 			aksSecretName: *"evo-akscluster" | string
   }
-
 }
