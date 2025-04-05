@@ -1,0 +1,21 @@
+name: evo-idm
+version: 24.4
+description: Evo-IdM Capability Provider powered by Keycloak.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/keycloak/horizontal/color/keycloak-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - Keycloak
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false
