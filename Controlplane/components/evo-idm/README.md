@@ -1,6 +1,6 @@
 # Evo-IdM
 
-Evo-AutoScaler Capability Provider powered by [Keycloak](https://www.keycloak.org/)
+Evo-IDM Capability Provider powered by [Keycloak](https://www.keycloak.org/)
 
 ## install
 
