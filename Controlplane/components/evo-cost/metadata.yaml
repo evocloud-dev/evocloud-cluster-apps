@@ -1,0 +1,21 @@
+name: evo-cost
+version: 2.12.0
+description: Evo-Cost Capability Provider powered by OpenCost.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/opencost/horizontal/color/opencost-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - OpenCost
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false
