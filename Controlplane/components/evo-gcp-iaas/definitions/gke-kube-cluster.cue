@@ -28,8 +28,9 @@ template: {
     		monitoringService: "monitoring.googleapis.com/kubernetes"
     		ipAllocationPolicy: {
     			useIpAliases: true
-    			clusterIpv4CidrBlock: parameter.clusterIpv4CidrBlock
-    			servicesIpv4CidrBlock: parameter.servicesIpv4CidrBlock
+    			//Getting Error 400: Services CIDR range is smaller than minimum (14 < 16)
+    			//clusterIpv4CidrBlock: parameter.clusterIpv4CidrBlock
+    			//servicesIpv4CidrBlock: parameter.servicesIpv4CidrBlock
     		}
     		networkRef: {
     			name: parameter.virtualNetworkName
@@ -93,8 +94,8 @@ template: {
 			gkeClusterName: *"evo-gkecluster-01" | string
 			gkeSecretName: *"evo-gkeconfig" | string
 			gkeClusterDescription: *"Google Kubernetes Engine created by EvoCloud Controller" | string
-			clusterIpv4CidrBlock: *"10.96.0.0/14" | string
-			servicesIpv4CidrBlock: *"10.80.0.0/14" | string
+			//clusterIpv4CidrBlock: *"10.96.0.0/14" | string
+			//servicesIpv4CidrBlock: *"10.80.0.0/14" | string
 
 			gkeNodepoolName: *"evo-gke-nodepool"  | string
 			gkeMachineType: *"n1-standard-1" | string
