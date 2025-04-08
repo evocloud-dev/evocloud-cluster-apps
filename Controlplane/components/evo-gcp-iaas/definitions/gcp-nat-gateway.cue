@@ -41,7 +41,7 @@ template: {
   }
 
   //parameter
-  parameter: {
+	parameter: {
 			//+usage=providerName defining the type of the IaaS Provider to use. Defaults to `provider-gcp`
 			providerName: *"provider-gcp" | string
 			//+usage=providerConfigName defining the config name of the IaaS Provider to use. Defaults to `provider-gcp-config`
@@ -73,23 +73,24 @@ template: {
 
 			subnetName: string
 			subnetAddressCidr: string
-			defaultRegion: string
+			defaultRegion: *"us-central1" | string
 			subnetDescription: *"Subnet created by EvoCloud Controller" | string
 
-			gatewayName: "evo-nat-gateway" | string
-			gatewayDescription: "Gateway Routed created by EvoCloud Controller" | string
+			gatewayName: *"evo-nat-gateway" | string
+			gatewayDescription: *"Gateway Routed created by EvoCloud Controller" | string
 
 			gkeClusterName: *"evo-gkecluster-01" | string
 			gkeSecretName: *"evo-gkeconfig" | string
 			gkeClusterDescription: *"Google Kubernetes Engine created by EvoCloud Controller" | string
 			clusterIpv4CidrBlock: *"10.96.0.0/14" | string
-			servicesIpv4CidrBlock: *"10.80.0.0/14" | string
+			servicesIpv4CidrBlock: *"10.200.0.0/16" | string
 
 			gkeNodepoolName: *"evo-gke-nodepool"  | string
 			gkeMachineType: *"n1-standard-1" | string
 			gkeDiskSizeGb: *100 | int
 			gkeDiskType: *"pd-ssd" | string
-			gkeImageType: *"cos_container" | string
+			gkeImageType: *"cos_containerd" | string
+			gkeMinNodeCount: *3 | int
 			gkeMaxNodeCount: *5 | int
 			gkeDefaultZones: *["us-central1-a", "us-central1-b", "us-central1-c"] | [...string]
 			gkeSetPreemptible: *false | bool
