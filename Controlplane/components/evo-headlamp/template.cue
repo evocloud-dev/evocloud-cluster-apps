@@ -78,7 +78,7 @@ output: {
                     	}
                     }
                     values: {
-                    	storageClass: parameter.storageclass
+                    	replicaCount: parameter.replicacount
                     }
                   }
                }

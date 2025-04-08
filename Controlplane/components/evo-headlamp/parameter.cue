@@ -2,5 +2,5 @@
 parameter: {
   //+usage=namespace to deploy to.
   namespace: *"harbor-system" | string
-  storageclass: *"ceph-block" | string
+  replicacount: 1 | uint
 }
