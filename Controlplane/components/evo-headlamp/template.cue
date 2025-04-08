@@ -37,7 +37,7 @@ output: {
                   }
                   spec: {
                   	interval: "1h"
-                  	url: "https://headlamp-k8s.github.io/headlamp/"
+                  	url: "https://kubernetes-sigs.github.io/headlamp/"
                   }
                }
              ]

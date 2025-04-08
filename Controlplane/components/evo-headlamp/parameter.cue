@@ -1,6 +1,6 @@
 // parameter.cue
 parameter: {
   //+usage=namespace to deploy to.
-  namespace: *"harbor-system" | string
-  replicacount: 1 | uint
+  namespace: *"headlamp-system" | string
+  replicacount: *1 | int
 }
