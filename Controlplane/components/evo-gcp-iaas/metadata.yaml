@@ -1,0 +1,23 @@
+name: evo-gcp-iaas
+version: 0.1.0
+description: EvoCloud controlplane provider for deploying and managing Google Cloud resources with Crossplane.
+icon: https://www.svglink.dev
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - GCP
+
+deployTo:
+  runtimeCluster: false
+  control_plane: true
+
+dependencies:
+  - name: evo-xplane
+    version: ">= 1.19.0, < 2.0.0"
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false
