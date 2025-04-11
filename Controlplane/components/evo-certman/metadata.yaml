@@ -1,0 +1,21 @@
+name: evo-certman
+version: 1.17.1
+description: Evo-Certman Capability Provider powered by Cert-Manager.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/cert-manager/icon/color/cert-manager-icon-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - Cert-Manager
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false
