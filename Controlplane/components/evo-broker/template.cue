@@ -32,7 +32,7 @@ output: {
                   apiVersion: "source.toolkit.fluxcd.io/v1beta1"
                   kind: "HelmRepository"
                   metadata: {
-                    name: "broker-stable"
+                    name: "bitnami"
                     namespace: parameter.namespace
                   }
                   spec: {
@@ -52,7 +52,7 @@ output: {
                   apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
                   kind: "HelmRelease"
                   metadata: {
-                    name: "broker"
+                    name: "evo-broker"
                     namespace: parameter.namespace
                   }
                   spec: {
@@ -61,7 +61,7 @@ output: {
                     		chart: "rabbitmq-cluster-operator"
                     		sourceRef: {
                     			kind: "HelmRepository"
-                    			name: "broker-stable"
+                    			name: "bitnami"
                     		}
                     		version: "4.4.*"
                     	}
