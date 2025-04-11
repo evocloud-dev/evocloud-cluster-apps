@@ -5,7 +5,7 @@ output: {
 	apiVersion: "core.oam.dev/v1beta1"
 	kind: "Application"
 	metadata: {
-		name: 'evo-victoria-metrics'
+		name: 'evo-vmetrics'
 		namespace: 'vela-system'
 	}
 	spec: {
