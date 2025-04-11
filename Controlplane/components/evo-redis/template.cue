@@ -79,6 +79,8 @@ output: {
                     }
                     values: {
                     	replicaCount: parameter.replicas
+                    	cpuLimit: parameter.resources.limits.cpu
+                    	cpuRequests: parameter.resources.requests.cpu
                     }
                   }
                }
