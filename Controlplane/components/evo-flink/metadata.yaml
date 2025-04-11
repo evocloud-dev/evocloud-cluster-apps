@@ -1,0 +1,21 @@
+name: evo-flink
+version: 1.11.0
+description: Evo-Flink Capability Provider powered by Apache Flink Operator.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/flink/horizontal/color/flink-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - Apache Flink
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false
