@@ -1,6 +1,6 @@
 name: evo-redis
-version: 7.8.2-6
-description: Evo-Redis Capability Provider powered by Redis Operator.
+version: 0.20.0
+description: Evo-Redis Capability Provider powered by OpsTree Redis Operator.
 icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/redis/horizontal/color/redis-horizontal-color.png
 url: https://evocloud.dev/
 
