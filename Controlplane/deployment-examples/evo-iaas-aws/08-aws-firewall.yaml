@@ -1,0 +1,32 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-firewall-main
+spec:
+  components:
+    - name: evo-aws-firewall
+      type: aws-firewall-rule
+      properties:
+        defaultRegion: "us-east-2"
+        defaultNamespace: "evocloud-ns"
+        firewallRuleName: "evo-aws-fw-default"
+        securityGroupName: "fw-rule-defaut"
+        awsIngressRules:
+          - fromPort: 22
+            toPort: 22
+            ipProtocol: "tcp"
+            ipRanges:
+              - cidrIp: "0.0.0.0/0"
+          - fromPort: 443
+            toPort: 443
+            ipProtocol: "tcp"
+            ipRanges:
+              - cidrIp: "0.0.0.0/0"
+        awsEgressRules:
+          - fromPort: 0
+            toPort: 0
+            ipProtocol: "-1"
+            ipRanges:
+              - cidrIp: "0.0.0.0/0"
+
