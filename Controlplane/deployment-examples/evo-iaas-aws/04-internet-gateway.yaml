@@ -1,0 +1,13 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-internet-gateway
+spec:
+  components:
+    - name: evo-aws-internet-gateway
+      type: aws-internet-gateway
+      properties:
+        defaultRegion: "us-east-2"
+        defaultNamespace: "evocloud-ns"
+        internetGatewayName: "evopaas-internet-gtw"

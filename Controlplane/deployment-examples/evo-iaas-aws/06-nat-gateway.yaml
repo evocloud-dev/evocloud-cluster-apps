@@ -1,0 +1,15 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-nat-gateway
+spec:
+  components:
+    - name: evo-aws-nat-gateway
+      type: aws-nat-gateway
+      properties:
+        defaultRegion: "us-east-2"
+        defaultNamespace: "evocloud-ns"
+        natGatewayName: "evopaas-nat-gtw"
+        ipAllocationName: "evopaas-eip"
+        subnetName: "evopaas-dmz-net"

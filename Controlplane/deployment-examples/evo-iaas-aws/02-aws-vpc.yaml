@@ -1,0 +1,13 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-vpc
+spec:
+  components:
+    - name: evo-aws-vpc
+      type: aws-vnet
+      properties:
+        defaultRegion: "us-east-2"
+        defaultNamespace: "evocloud-ns"
+        virtualNetworkName: "evocloud-paas-vnet"

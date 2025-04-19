@@ -1,0 +1,14 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-eip-gtw
+spec:
+  components:
+    - name: evo-aws-eip
+      type: aws-elastic-ip
+      properties:
+        defaultRegion: "us-east-2"
+        defaultNamespace: "evocloud-ns"
+        virtualNetworkName: "evocloud-paas-vnet"
+        ipAllocationName: "evopaas-eip"

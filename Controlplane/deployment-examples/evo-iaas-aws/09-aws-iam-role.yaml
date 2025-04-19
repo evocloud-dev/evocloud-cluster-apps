@@ -1,0 +1,29 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-iam-role-ekscluster
+spec:
+  components:
+    - name: evo-iam-role
+      type: aws-iam-role
+      properties:
+        iamRoleName: "eks-cluster-role"
+        defaultNamespace: "evocloud-ns"
+        awsServicePrincipals: ["eks.amazonaws.com"]
+        awsAssumeRoles: ["sts:AssumeRole", "sts:TagSession"]
+
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-iam-role-eksnode
+spec:
+  components:
+    - name: evo-iam-role
+      type: aws-iam-role
+      properties:
+        iamRoleName: "eks-node-role"
+        defaultNamespace: "evocloud-ns"
+        awsServicePrincipals: ["ec2.amazonaws.com"]
+        awsAssumeRoles: ["sts:AssumeRole", "sts:TagSession"]

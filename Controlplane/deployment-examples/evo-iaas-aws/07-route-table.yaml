@@ -1,0 +1,47 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-route-table-dmz
+spec:
+  components:
+    - name: evo-aws-route-table
+      type: aws-route-table
+      properties:
+        routeTableName: "evopaas-route-table-dmz"
+        defaultRegion: "us-east-2"
+        defaultNamespace: "evocloud-ns"
+        internetGatewayName: "evopaas-internet-gtw"
+        subnetName: "evopaas-dmz-net"
+
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-route-table-admin
+spec:
+  components:
+    - name: evo-aws-route-table
+      type: aws-route-table
+      properties:
+        routeTableName: "evopaas-route-table-admin"
+        defaultRegion: "us-east-2"
+        defaultNamespace: "evocloud-ns"
+        natGatewayName: "evopaas-nat-gtw"
+        subnetName: "evopaas-admin-net"
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-route-table-backend
+spec:
+  components:
+    - name: evo-aws-route-table
+      type: aws-route-table
+      properties:
+        routeTableName: "evopaas-route-table-backend"
+        defaultRegion: "us-east-2"
+        defaultNamespace: "evocloud-ns"
+        natGatewayName: "evopaas-nat-gtw"
+        subnetName: "evopaas-backend-net"
+

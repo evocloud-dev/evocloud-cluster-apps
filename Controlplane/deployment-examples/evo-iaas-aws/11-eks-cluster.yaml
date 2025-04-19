@@ -1,0 +1,19 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-eks-cluster-obsedian
+spec:
+  components:
+    - name: evo-eks-cluster
+      type: aws-kube-cluster
+      properties:
+        eksClusterRole: "eks-cluster-role"
+        defaultNamespace: "evocloud-ns"
+        eksClusterName: "evo-awscluster"
+        eksKubeVersion: "1.32"
+        securityGroupIdRefs:
+          - name: "evo-aws-fw-default"
+        SubnetRefs:
+          - name: "evopaas-backend-net"
+          - name: "evopaas-admin-net"

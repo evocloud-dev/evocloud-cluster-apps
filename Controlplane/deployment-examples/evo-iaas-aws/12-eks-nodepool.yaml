@@ -1,0 +1,18 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-kube-nodepool-01
+spec:
+  components:
+    - name: evo-eks-nodepool
+      type: aws-kube-nodepool
+      properties:
+        eksClusterName: "evo-awscluster"
+        nodePoolName: "evopaas-eks-nodepool"
+        eksNodeRole: "eks-node-role"
+        defaultNamespace: "evocloud-ns"
+        subnetRefs:
+          - name: "evopaas-backend-net"
+          - name: "evopaas-admin-net"
+

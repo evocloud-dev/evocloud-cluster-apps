@@ -1,0 +1,121 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-policy-attach-cluster-role-01
+spec:
+  components:
+    - name: evo-iam-role-policy-attach
+      type: aws-iam-role-policy-attach
+      properties:
+        iamRoleName: "eks-cluster-role"
+        defaultNamespace: "evocloud-ns"
+        iamRolePolicyAttachmentName: "evopaas-ekscluster-policy"
+        awsPolicyArn: "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-policy-attach-cluster-role-02
+spec:
+  components:
+    - name: evo-iam-role-policy-attach
+      type: aws-iam-role-policy-attach
+      properties:
+        iamRoleName: "eks-cluster-role"
+        defaultNamespace: "evocloud-ns"
+        iamRolePolicyAttachmentName: "evopaas-eksservice-policy"
+        awsPolicyArn: "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
+
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-policy-attach-cluster-role-03
+spec:
+  components:
+    - name: evo-iam-role-policy-attach
+      type: aws-iam-role-policy-attach
+      properties:
+        iamRoleName: "eks-cluster-role"
+        defaultNamespace: "evocloud-ns"
+        iamRolePolicyAttachmentName: "evopaas-eksblockstorage-policy"
+        awsPolicyArn: "arn:aws:iam::aws:policy/AmazonEKSBlockStoragePolicy"
+
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-policy-attach-cluster-role-04
+spec:
+  components:
+    - name: evo-iam-role-policy-attach
+      type: aws-iam-role-policy-attach
+      properties:
+        iamRoleName: "eks-cluster-role"
+        defaultNamespace: "evocloud-ns"
+        iamRolePolicyAttachmentName: "evopaas-ekscompute-policy"
+        awsPolicyArn: "arn:aws:iam::aws:policy/AmazonEKSComputePolicy"
+
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-policy-attach-cluster-role-05
+spec:
+  components:
+    - name: evo-iam-role-policy-attach
+      type: aws-iam-role-policy-attach
+      properties:
+        iamRoleName: "eks-cluster-role"
+        defaultNamespace: "evocloud-ns"
+        iamRolePolicyAttachmentName: "evopaas-ekslb-policy"
+        awsPolicyArn: "arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy"
+
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-policy-attach-cluster-role-06
+spec:
+  components:
+    - name: evo-iam-role-policy-attach
+      type: aws-iam-role-policy-attach
+      properties:
+        iamRoleName: "eks-cluster-role"
+        defaultNamespace: "evocloud-ns"
+        iamRolePolicyAttachmentName: "evopaas-eksnetwork-policy"
+        awsPolicyArn: "arn:aws:iam::aws:policy/AmazonEKSNetworkingPolicy"
+
+
+#NodeGroup Role Policy Attachment
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-policy-attach-nodegroup-role-01
+spec:
+  components:
+    - name: evo-iam-role-policy-attach
+      type: aws-iam-role-policy-attach
+      properties:
+        iamRoleName: "eks-node-role"
+        defaultNamespace: "evocloud-ns"
+        iamRolePolicyAttachmentName: "evopaas-ekscni-policy"
+        awsPolicyArn: "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-policy-attach-nodegroup-role-02
+spec:
+  components:
+    - name: evo-iam-role-policy-attach
+      type: aws-iam-role-policy-attach
+      properties:
+        iamRoleName: "eks-node-role"
+        defaultNamespace: "evocloud-ns"
+        iamRolePolicyAttachmentName: "evopaas-ecrregistry-policy"
+        awsPolicyArn: "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"

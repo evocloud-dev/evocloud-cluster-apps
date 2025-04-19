@@ -1,0 +1,48 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-subnet-dmz
+spec:
+  components:
+    - name: evo-aws-subnet
+      type: aws-subnet
+      properties:
+        defaultRegion: "us-east-2"
+        availabilityZone: "us-east-2a"
+        defaultNamespace: "evocloud-ns"
+        subnetName: "evopaas-dmz-net"
+        subnetAddressCidr: "10.10.10.0/24"
+
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-subnet-admin
+spec:
+  components:
+    - name: evo-aws-subnet
+      type: aws-subnet
+      properties:
+        defaultRegion: "us-east-2"
+        availabilityZone: "us-east-2b"
+        defaultNamespace: "evocloud-ns"
+        subnetName: "evopaas-admin-net"
+        subnetAddressCidr: "10.10.20.0/24"
+
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: aws-subnet-backend
+spec:
+  components:
+    - name: evo-aws-subnet
+      type: aws-subnet
+      properties:
+        defaultRegion: "us-east-2"
+        availabilityZone: "us-east-2c"
+        defaultNamespace: "evocloud-ns"
+        subnetName: "evopaas-backend-net"
+        subnetAddressCidr: "10.10.30.0/24"
+         

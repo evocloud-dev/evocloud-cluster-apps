@@ -1,0 +1,12 @@
+---
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: provider-aws
+spec:
+  components:
+    - name: evo-aws-provider
+      type: aws-provider-config
+      properties:
+        awsAccessKeyId: "YOUR_ACCESS_KEY_ID_HERE"
+        awsSecretAccessKey: "YOUR_SECRET_ACCESS_KEY_HERE"
