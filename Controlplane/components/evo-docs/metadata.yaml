@@ -1,0 +1,21 @@
+name: evo-docs
+version: 0.3.0-alpha
+description: Evo-docs Capability Provider powered by EvoCloud.
+icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/harbor/horizontal/color/harbor-horizontal-color.png
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - Documentation
+
+deployTo:
+  control_plane: true
+  runtimeCluster: false
+
+dependencies: []
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false
