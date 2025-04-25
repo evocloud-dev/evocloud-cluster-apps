@@ -37,7 +37,7 @@ output: {
                   }
                   spec: {
                   	interval: "1h"
-                  	url: "https://helm.goharbor.io"
+                  	url: ""
                   }
                }
              ]
