@@ -6,7 +6,7 @@ metadata:
 spec:
   components:
     - name: evo-eks-cluster
-      type: aws-kube-cluster
+      type: aws-eks-cluster
       properties:
         eksClusterRole: "eks-cluster-role"
         defaultNamespace: "evocloud-ns"

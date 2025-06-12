@@ -6,7 +6,7 @@ metadata:
 spec:
   components:
     - name: evo-eks-nodepool
-      type: aws-kube-nodepool
+      type: aws-eks-nodepool
       properties:
         eksClusterName: "evo-awscluster"
         nodePoolName: "evopaas-eks-nodepool"
