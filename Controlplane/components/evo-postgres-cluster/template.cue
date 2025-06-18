@@ -79,6 +79,7 @@ output: {
                     	}
                     }
                     values: {
+                    	enablePDB: parameter.cluster.enablePDB
                     	//type: parameter.type
                     	//version: parameter.version.postgresql
                     	//port: parameter.recovery.import.source.port

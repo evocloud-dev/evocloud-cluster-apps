@@ -16,6 +16,7 @@ parameter: {
   }
   cluster: {
   	instances: *3 | int
+  	enablePDB: *false | bool
   	storage: {
   		size: *"8Gi" | string,
   		storageClass: *"ceph-block" | string
