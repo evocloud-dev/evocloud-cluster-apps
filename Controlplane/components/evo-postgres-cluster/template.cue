@@ -79,13 +79,26 @@ output: {
                     	}
                     }
                     values: {
-                    	enablePDB: parameter.cluster.enablePDB
-                    	//type: parameter.type
-                    	//version: parameter.version.postgresql
-                    	//port: parameter.recovery.import.source.port
-                    	//instances: parameter.cluster.instances
-                    	//size: parameter.cluster.storage.size
-                    	//storageClass: parameter.cluster.storage.storageClass
+                      type: parameter.type
+                      cluster: {
+                        instances: parameter.instances
+                        enablePDB: parameter.enablePDB
+                        storage: {
+                          size: parameter.size
+                          storageClass: parameter.storageClass
+                        }
+                      }
+                      version: {
+                        if parameter.postgresql != _|_ {
+                          postgresql: parameter.postgresql
+                        }
+                        if parameter.timescaledb != _|_ {
+                          timescaledb: parameter.timescaledb
+                        }
+                        if parameter.postgis != _|_ {
+                          postgis: parameter.postgis
+                        }
+                      }
                     }
                   }
                }
