@@ -26,4 +26,6 @@ parameter: {
 	internetGatewayName: string
 	//+usage=IP Allocation name.
 	ipAllocationName: string
+	//+usage=NAT Gateway name.
+	natGatewayName: string
 }
