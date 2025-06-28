@@ -14,7 +14,7 @@ output: {
         {
 				  type: "apply-component"
 				  name: "Deploy evo-aws PaaS"
-				  properties: component: ["evo-aws-provider", "evo-aws-vpc"]
+				  properties: component: ["evo-aws-provider", "evo-aws-vpc", "evo-aws-subnet", "evo-aws-internet-gateway", ]
 			  },
 			]
     }
