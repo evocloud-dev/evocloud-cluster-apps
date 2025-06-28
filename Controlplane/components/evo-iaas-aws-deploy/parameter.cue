@@ -28,4 +28,8 @@ parameter: {
 	ipAllocationName: string
 	//+usage=NAT Gateway name.
 	natGatewayName: string
+	//+usage=Route table name.
+  routeTableName: string
+  //+usage=Destination route cidr.
+	destinationCidrBlock: *"0.0.0.0/0" | string
 }
