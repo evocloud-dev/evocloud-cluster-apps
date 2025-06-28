@@ -42,7 +42,7 @@ template: {
 		//+usage=IP Allocation name.
 		ipAllocationName: string
 		//+usage=Default Namespace under which resources are grouped.
-		defaultNamespace: string
+		defaultNamespace: *"evocloud-ns" | string
 		//+usage=Default region to deploy the Internet Gateway.
 		defaultRegion: *"us-east-2" | string
 		//+usage=AWS IaaS Provider config name (do not alter this value).

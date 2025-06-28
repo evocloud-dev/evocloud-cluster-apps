@@ -1,0 +1,23 @@
+name: evo-aws-iaas-deploy
+version: 0.1.0
+description: EvoCloud controlplane provider for deploy a PaaS on AWS resources.
+icon: https://www.svglink.dev
+url: https://evocloud.dev/
+
+tags:
+  - EvoCloud
+  - AWS-PaaS
+
+deployTo:
+  runtimeCluster: false
+  control_plane: true
+
+dependencies:
+  - name: evo-iaas-aws
+    version: ">= 0.1.0"
+
+system:
+  vela: ">=v1.10.0"
+  kubernetes: ">=1.30.0"
+
+invisible: false

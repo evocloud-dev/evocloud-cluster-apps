@@ -10,5 +10,4 @@ spec:
       properties:
         defaultRegion: "us-east-2"
         defaultNamespace: "evocloud-ns"
-        virtualNetworkName: "evocloud-paas-vnet"
         ipAllocationName: "evopaas-eip"
